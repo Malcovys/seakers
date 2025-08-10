@@ -1,7 +1,5 @@
-
-
-abstract class LocalSource<T> {
-  Future<void> store(T model);
-  Future<void> reset();
-  Future<T?> retrieve();
+abstract class LocalSource {
+  Future<void> store(String key, Map<String, dynamic> json);
+  Future<void> reset(String key);
+  Future<Map<String, dynamic>?> retrieve(String key);
 }

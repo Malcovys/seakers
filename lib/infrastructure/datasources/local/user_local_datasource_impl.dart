@@ -3,23 +3,30 @@ import 'package:sneakers/infrastructure/datasources/local/user_local_datasource.
 import 'package:sneakers/infrastructure/models/user_model.dart';
 
 class UserLocalDatasourceImpl extends UserLocalDatasource {
-  final LocalSource<UserModel> source;
+  final LocalSource source;
+  final String key = "user";
 
   UserLocalDatasourceImpl(this.source);
 
   @override
   Future<void> deleteUser() async {
-    await source.reset();
+    await source.reset(key);
   }
 
   @override
   Future<UserModel?> getUser() async {
-    return await source.retrieve();
+    final json = await source.retrieve(key);
+
+    if(json == null) {
+      return null;
+    }
+
+    return UserModel.fromJson(json);
   }
 
   @override
   Future<UserModel> saveUser(UserModel user) async {
-    await source.store(user);
+    await source.store(key, user.toJson());
     return user;
   }
 }
