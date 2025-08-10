@@ -1,6 +1,7 @@
+import 'package:sneakers/core/models/model.dart';
 import 'package:sneakers/domain/entities/user_entity.dart';
 
-class UserModel {
+class UserModel extends Model<UserEntity>{
   int id;
   final String name;
   final String email;
@@ -13,7 +14,7 @@ class UserModel {
     required this.wallet,
   });
 
-  factory UserModel.fromJson(Map<String, dynamic> json) {
+  static UserModel fromJson(Map<String, dynamic> json) {
     return UserModel(
       id: json["id"],
       name: json["name"],
@@ -22,16 +23,7 @@ class UserModel {
     );
   }
 
-  Map<String, dynamic> toJson() {
-    return {
-      "id": id,
-      "name": name,
-      "email": email,
-      "wallet": wallet
-    };
-  }
-
-  factory UserModel.fromEntity(UserEntity entity) {
+  static UserModel fromEntity(UserEntity entity) {
     return UserModel(
       id: entity.id,
       name: entity.name,
@@ -40,6 +32,7 @@ class UserModel {
     );
   }
 
+  @override
   UserEntity toEntity() {
     return UserEntity(
       id: id,
@@ -47,5 +40,15 @@ class UserModel {
       email: email,
       wallet: wallet,
     );
+  }
+  
+  @override
+  Map<String, dynamic> toJson() {
+    return {
+      "id": id,
+      "name": name,
+      "email": email,
+      "wallet": wallet
+    };
   }
 }

@@ -8,7 +8,11 @@ class LoginUsecase {
   LoginUsecase(this.userRepository);
 
   Future<UserEntity> call(String email, String password) async {
-    return await userRepository.getUser(email, password);
+    final user = await userRepository.getUser(email, password);
+    if(user != null) {
+      return user;
+    }
+    throw Exception("User not found");
   }
 
 }
