@@ -1,18 +1,18 @@
 
+import 'package:dartz/dartz.dart';
+import 'package:sneakers/core/errors/failure.dart';
+import 'package:sneakers/core/usecase/usecase.dart';
 import 'package:sneakers/domain/entities/user_entity.dart';
 import 'package:sneakers/domain/repositories/user_repository.dart';
 
-class LoginUsecase {
+class LoginUsecase extends UseCase<UserEntity, Map<String, String>> {
   final UserRepository userRepository;
 
   LoginUsecase(this.userRepository);
-
-  Future<UserEntity> call(String email, String password) async {
-    final user = await userRepository.getUser(email: email, password: password);
-    if(user != null) {
-      return user;
-    }
-    throw Exception("User not found.");
+  
+  @override
+  Future<Either<Failure, UserEntity>> call(Map<String, String>? params) async {
+    return await userRepository.getUser(params);
   }
 
 }
