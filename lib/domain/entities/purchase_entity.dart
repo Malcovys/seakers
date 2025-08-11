@@ -1,7 +1,7 @@
-
+import 'package:equatable/equatable.dart';
 import 'package:sneakers/domain/entities/basket_item_entity.dart';
 
-class PurchaseEntity {
+class PurchaseEntity extends Equatable {
   final int id;
   final DateTime date;
   final List<BasketItemEntity> items;
@@ -13,4 +13,23 @@ class PurchaseEntity {
     required this.items,
     required this.amount,
   });
+
+  PurchaseEntity copyWith({
+    int? id,
+    DateTime? date,
+    List<BasketItemEntity>? items,
+    double? amount,
+  }) {
+    return PurchaseEntity(
+      id: id ?? this.id,
+      date: date ?? this.date,
+      items: items != null
+          ? List<BasketItemEntity>.unmodifiable(items)
+          : List<BasketItemEntity>.unmodifiable(this.items),
+      amount: amount ?? this.amount,
+    );
+  }
+
+  @override
+  List<Object?> get props => [id, date, items, amount];
 }
