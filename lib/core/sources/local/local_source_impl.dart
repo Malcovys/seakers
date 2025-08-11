@@ -21,11 +21,9 @@ class LocalSourceImpl extends LocalSource {
   @override
   Future<Map<String, dynamic>?> retrieve(String key) async {
     final jsonString = loacalStore.getString(key);
-    
-    if (jsonString == null) {
+    if(jsonString == null) {
       return null;
     }
-    
     return jsonDecode(jsonString);
   }
 }

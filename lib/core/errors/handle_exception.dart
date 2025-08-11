@@ -3,7 +3,7 @@ import 'failure.dart';
 
 Failure handleException(Exception e) {
   if (e is CacheException) {
-    return const CacheFailure();
+    return CacheFailure(null);
   }
   if (e is ServerException) {
     return ServerFailure(info: e.message);

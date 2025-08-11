@@ -28,11 +28,12 @@ class UnauthorizedFailure extends Failure {
 }
 
 class NotFoundFailure extends Failure {
-  const NotFoundFailure() : super(message: 'Not found', code: 404);
+  const NotFoundFailure(message) : super(message: 'Not found', code: 404);
 }
 
+/// Cache storage faillure
 class CacheFailure extends Failure {
-  const CacheFailure() : super(message: 'Cache error');
+  const CacheFailure(String? message) : super(message: message ?? 'Cache error');
 }
 
 class ExpiredSessionFailure extends Failure {
