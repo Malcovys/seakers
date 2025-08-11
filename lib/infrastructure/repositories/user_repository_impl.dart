@@ -18,7 +18,7 @@ class UserRepositoryImpl extends UserRepository {
   }
 
   @override
-  Future<UserEntity?> getUser(String? email, String? password) async {
+  Future<UserEntity?> getUser({String? email, String? password}) async {
     if (email != null && email.isNotEmpty && password != null && password.isNotEmpty) {
       final user = await remoteDatasource.getUser(email, password);
       await localDatasource.saveUser(user);

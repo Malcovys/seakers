@@ -1,8 +1,11 @@
+import 'package:auto_route/annotations.dart';
 import 'package:flutter/material.dart';
+
 import 'package:sneakers/core/styles/theme.dart';
 import 'package:sneakers/presentation/widgets/buttons.dart';
 import 'package:sneakers/presentation/widgets/input_filed.dart';
 
+@RoutePage()
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
 
@@ -22,7 +25,10 @@ class _LoginPage extends State<LoginPage> {
     _password = value;
   }
 
-  void onSubmit() {
+  void onSubmit() async {
+    // login request
+    // is auth -> home page
+    // else -> show error
     print(_email);
     print(_password);
   }
