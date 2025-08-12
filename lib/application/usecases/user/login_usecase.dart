@@ -1,4 +1,4 @@
-import 'package:sneakers/core/usecase/usecase.dart';
+import 'package:sneakers/core/utils/generics/usecase.dart';
 import 'package:sneakers/domain/entities/user_entity.dart';
 import 'package:sneakers/domain/repositories/user_repository.dart';
 

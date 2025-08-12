@@ -1,4 +1,4 @@
-import 'package:sneakers/core/models/model.dart';
+import 'package:sneakers/core/utils/generics/model.dart';
 import 'package:sneakers/domain/entities/user_entity.dart';
 
 class UserModel extends Model<UserEntity>{
