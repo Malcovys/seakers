@@ -1,17 +1,17 @@
 import 'package:sneakers/domain/entities/user_entity.dart';
 import 'package:sneakers/domain/repositories/user_repository.dart';
-import 'package:sneakers/infrastructure/datasources/local/user_local_datasource.dart';
-import 'package:sneakers/infrastructure/datasources/remote/user_remote_datasource.dart';
+import 'package:sneakers/infrastructure/datasources/local/user/user_local_datasource.dart';
+import 'package:sneakers/infrastructure/datasources/remote/user/user_remote_datasource.dart';
 import 'package:sneakers/infrastructure/models/user_model.dart';
 
 class UserRepositoryImpl extends UserRepository {
   final UserLocalDatasource localDatasource;
   final UserRemoteDatasource remoteDatasource;
 
-  UserRepositoryImpl({
-    required this.localDatasource, 
-    required this.remoteDatasource
-  });
+  UserRepositoryImpl(
+    this.localDatasource, 
+    this.remoteDatasource
+  );
 
   @override
   Future<void> deleteUser() async {
