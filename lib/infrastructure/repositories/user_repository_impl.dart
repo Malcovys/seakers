@@ -1,9 +1,8 @@
-import 'package:dartz/dartz.dart';
-import 'package:sneakers/core/errors/failure.dart';
 import 'package:sneakers/domain/entities/user_entity.dart';
 import 'package:sneakers/domain/repositories/user_repository.dart';
 import 'package:sneakers/infrastructure/datasources/local/user_local_datasource.dart';
 import 'package:sneakers/infrastructure/datasources/remote/user_remote_datasource.dart';
+import 'package:sneakers/infrastructure/models/user_model.dart';
 
 class UserRepositoryImpl extends UserRepository {
   final UserLocalDatasource localDatasource;
@@ -15,38 +14,36 @@ class UserRepositoryImpl extends UserRepository {
   });
 
   @override
-  Future<Either<Failure, void>> deleteUser() async {
-    return await localDatasource.deleteUser();
+  Future<void> deleteUser() async {
+    await localDatasource.deleteUser();
   }
 
   @override
-  Future<Either<Failure, UserEntity>> getUser(Map<String, String>? credentials) async {
-      if (credentials != null && credentials.containsKey('email') && credentials.containsKey('password')) {
-        final email = credentials['email']!;
-        final password = credentials['password']!;
-        final user = await remoteDatasource.getUser(email, password);
-        await localDatasource.saveUser(user);
-        return Right(user.toEntity());
-      }
-
-      final res = await localDatasource.getUser();
-      return res.fold(
-        (failure) => Left(failure),
-        (user) => Right(user.toEntity()),
-      );
+  Future<UserEntity> getUser(Map<String, String>? credentials) async {
+    if (credentials != null && credentials.containsKey('email') && credentials.containsKey('password')) {
+      return await getUserFromRemote(credentials);
+    }
+    return await _getUserFromLocal();
   }
 
-  @override
-  Future<Either<Failure, UserEntity>> updateUser(UserEntity user) async {
-    final res = await localDatasource.getUser();
-    return await res.fold(
-      (failure) async => Left(failure), 
-      (localUser) async {
-        final updatedUser = await remoteDatasource.updateUser(localUser);
-        await localDatasource.saveUser(updatedUser);
+  Future<UserEntity> getUserFromRemote(Map<String, String>? credentials) async {
+    final email = credentials?['email']!;
+    final password = credentials?['password']!;
+    final user = await remoteDatasource.getUser(email!, password!);
+    await localDatasource.saveUser(user);
+    return user.toEntity();
+  }
 
-        return Right(updatedUser.toEntity());
-      },
-    );
+  Future<UserEntity> _getUserFromLocal() async {
+    final user = await localDatasource.getUser();
+    return user.toEntity();
+  }
+  
+
+  @override
+  Future<UserEntity> updateUser(UserEntity user) async {
+    final updatedUser = await remoteDatasource.updateUser(UserModel.fromEntity(user));
+    await localDatasource.saveUser(updatedUser);
+    return updatedUser.toEntity();
   }
 }

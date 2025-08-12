@@ -20,24 +20,31 @@ class UserBlock extends Bloc<UserEvent, UserState> {
   }
 
   Future<void> _onLogin(LoginEvent event, Emitter<UserState> emit) async {
-    emit(state.copyWith(status: UserStatus.loading));
-    final result = await loginUsecase({'email': event.email, 'password': event.password});
-    result.fold(
-      (failure) => emit(state.copyWith(
-        status: UserStatus.error,
-        errorMessage: failure.message,
-      )),
-      (user) => emit(state.copyWith(
+    try {
+      emit(state.copyWith(
+        status: UserStatus.loading, 
+        errorMessage: null
+      ));
+      final user = await loginUsecase({'email': event.email, 'password': event.password});
+      emit(state.copyWith(
         status: UserStatus.authenticated,
         currentUser: user,
         errorMessage: null,
-      )),
-    );
+      ));
+    } catch(e) {
+      emit(state.copyWith(
+        status: UserStatus.error,
+        errorMessage: e.toString(),
+      ));
+    }
   }
 
   Future<void> _onLogout(LogoutEvent event, Emitter<UserState> emit) async {
-    emit(state.copyWith(status: UserStatus.loading));
     try {
+      emit(state.copyWith(
+        status: UserStatus.loading,
+        errorMessage: null,
+      ));
       await logoutUsecase(null);
       emit(const UserInitialState());
     } catch (e) {
@@ -49,18 +56,22 @@ class UserBlock extends Bloc<UserEvent, UserState> {
   }
 
   Future<void> _onRetrieveCurrentUser(RetriveCurrentUserEvent event, Emitter<UserState> emit) async {
-    emit(state.copyWith(status: UserStatus.loading, errorMessage: null));
-    final result = await retriveCurrentUserUsecase(null);
-    result.fold(
-      (failure) => emit(state.copyWith(
-        status: UserStatus.error,
-        errorMessage: failure.message,
-      )),
-      (user) => emit(state.copyWith(
+    try {
+      emit(state.copyWith(
+        status: UserStatus.loading, 
+        errorMessage: null
+      ));
+      final user = await retriveCurrentUserUsecase(null);
+      emit(state.copyWith(
         status: UserStatus.authenticated,
         currentUser: user,
         errorMessage: null,
-      )),
-    );
+      ));
+    } catch(e) {
+      emit(state.copyWith(
+        status: UserStatus.error,
+        errorMessage: e.toString(),
+      ));
+    }
   }
 }

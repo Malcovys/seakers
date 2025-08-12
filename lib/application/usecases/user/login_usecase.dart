@@ -1,6 +1,3 @@
-
-import 'package:dartz/dartz.dart';
-import 'package:sneakers/core/errors/failure.dart';
 import 'package:sneakers/core/usecase/usecase.dart';
 import 'package:sneakers/domain/entities/user_entity.dart';
 import 'package:sneakers/domain/repositories/user_repository.dart';
@@ -11,8 +8,7 @@ class LoginUsecase extends UseCase<UserEntity, Map<String, String>> {
   LoginUsecase(this.userRepository);
   
   @override
-  Future<Either<Failure, UserEntity>> call(Map<String, String>? params) async {
+  Future<UserEntity> call(Map<String, String>? params) async {
     return await userRepository.getUser(params);
   }
-
 }

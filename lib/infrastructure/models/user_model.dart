@@ -48,7 +48,7 @@ class UserModel extends Model<UserEntity>{
       "id": id,
       "name": name,
       "email": email,
-      "wallet": wallet
+      "wallet": wallet,
     };
   }
 }
