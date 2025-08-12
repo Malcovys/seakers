@@ -14,7 +14,7 @@ import 'package:sneakers/infrastructure/datasources/local/user/user_local_dataso
 import 'package:sneakers/infrastructure/datasources/remote/user/user_remote_datasource.dart';
 import 'package:sneakers/infrastructure/datasources/remote/user/user_remote_datasource_impl.dart';
 import 'package:sneakers/infrastructure/repositories/user_repository_impl.dart';
-import 'package:sneakers/presentation/managers/user/user_block.dart';
+import 'package:sneakers/presentation/managers/user/user_bloc.dart';
 
 part 'bloc_injections.dart';
 part 'usecases_injection.dart';

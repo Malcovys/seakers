@@ -8,12 +8,12 @@ import 'package:sneakers/application/usecases/user/login_usecase.dart';
 import 'package:sneakers/application/usecases/user/logout_usecase.dart';
 
 
-class UserBlock extends Bloc<UserEvent, UserState> {
+class UserBloc extends Bloc<UserEvent, UserState> {
   final LoginUsecase loginUsecase;
   final LogoutUsecase logoutUsecase;
   final RetriveCurrentUserUsecase retriveCurrentUserUsecase;
 
-  UserBlock(this.loginUsecase, this.logoutUsecase, this.retriveCurrentUserUsecase) : super (const UserInitialState()) {
+  UserBloc(this.loginUsecase, this.logoutUsecase, this.retriveCurrentUserUsecase) : super (const UserInitialState()) {
     on<LoginEvent>(_onLogin);
     on<LogoutEvent>(_onLogout);
     on<RetriveCurrentUserEvent>(_onRetrieveCurrentUser);
