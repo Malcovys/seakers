@@ -1,18 +1,16 @@
 part of './injection.dart';
 
-void _registerDatasources() {
+Future<void> _registerDatasources() async {
   _registerRemoteSourceServce();
-  _registerLocalService();
+  await _registerLocalService();
 
   getIt.registerLazySingleton<UserLocalDatasource>(() => UserLocalDatasourceImpl(getIt()));
   getIt.registerLazySingleton<UserRemoteDatasource>(() => UserRemoteDatasourceImpl(getIt()));
 }
 
-void _registerLocalService() {
-  getIt.registerLazySingletonAsync<LocalSource>(() async { 
-    SharedPreferences prefs = await SharedPreferences.getInstance();
-    return Future.value(LocalSourceImpl(prefs));
-  });
+Future<void> _registerLocalService() async {
+  SharedPreferences prefs = await SharedPreferences.getInstance();
+  getIt.registerLazySingleton<LocalSource>(() => LocalSourceImpl(prefs));
 }
 
 void _registerRemoteSourceServce() {

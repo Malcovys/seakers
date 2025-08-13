@@ -1,6 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:sneakers/core/routes/app_router.gr.dart';
-import 'package:sneakers/core/routes/guards/auth_guard.dart';
+// import 'package:sneakers/core/routes/guards/auth_guard.dart';
 
 // dart run build_runner build --delete-conflicting-outputs
 
@@ -15,10 +15,10 @@ class AppRouter extends RootStackRouter {
       keepHistory: false,
     ),
     AutoRoute(
-      path: 'home',
+      path: '/home',
       page: HomeRoute.page,
       initial: true,
-      guards: [AuthGuard()]
+      // guards: [AuthGuard()]
     )
   ];
 }

@@ -25,7 +25,7 @@ final getIt = GetIt.instance;
 
 Future<void> setupInjections() async {
   _registerBlocs();
-  _registerDatasources();
+  await _registerDatasources();
   _registerRepositories();
   _registerUsecases();
 }

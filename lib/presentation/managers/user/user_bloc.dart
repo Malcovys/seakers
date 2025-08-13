@@ -32,6 +32,7 @@ class UserBloc extends Bloc<UserEvent, UserState> {
         errorMessage: null,
       ));
     } catch(e) {
+      print(e.toString());
       emit(state.copyWith(
         status: UserStatus.error,
         errorMessage: e.toString(),
@@ -48,6 +49,7 @@ class UserBloc extends Bloc<UserEvent, UserState> {
       await logoutUsecase(null);
       emit(const UserInitialState());
     } catch (e) {
+      print(e.toString());
       emit(state.copyWith(
         status: UserStatus.error,
         errorMessage: e.toString(),
@@ -68,6 +70,7 @@ class UserBloc extends Bloc<UserEvent, UserState> {
         errorMessage: null,
       ));
     } catch(e) {
+      print(e.toString());
       emit(state.copyWith(
         status: UserStatus.error,
         errorMessage: e.toString(),
