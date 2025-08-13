@@ -1,0 +1,53 @@
+import 'package:auto_route/auto_route.dart';
+import 'package:flutter/material.dart';
+import 'package:sneakers/core/routes/app_router.gr.dart';
+import 'package:sneakers/core/styles/theme.dart';
+
+@RoutePage()
+class AppPage extends StatelessWidget {
+  const AppPage({super.key});
+  
+  @override
+  Widget build(BuildContext context) {
+    return AutoTabsRouter(
+      routes: [
+        HomeRoute(),
+        BrowseRoute(),
+        BasketRoute(),
+        ProfileRoute(),
+      ],
+
+      transitionBuilder: (context, child, animation) => FadeTransition(
+        opacity: animation,
+        child: child, // Display the selected tab
+      ),
+
+      builder: (context, child) {
+        final tabsRouter = AutoTabsRouter.of(context);
+
+        return Scaffold(
+          body: child,
+          bottomNavigationBar: BottomNavigationBar(
+            selectedLabelStyle: captionSemibold,
+            unselectedLabelStyle: caption,
+            selectedItemColor: contentPrimary,
+
+            type: BottomNavigationBarType.fixed, // Fix the size
+
+            currentIndex: tabsRouter.activeIndex,
+            onTap: (index) {
+              // Switch between tabs
+              tabsRouter.setActiveIndex(index);
+            },
+            items: [
+              BottomNavigationBarItem(label: 'Home', icon: Icon(Icons.home_sharp)),
+              BottomNavigationBarItem(label: 'Browse', icon: Icon(Icons.search_rounded)),
+              BottomNavigationBarItem(label: 'Basket', icon: Icon(Icons.shopping_basket)),
+              BottomNavigationBarItem(label: 'Profile', icon: Icon(Icons.person)),
+            ]
+          ),
+        );
+      },
+    );
+  }
+}

@@ -4,21 +4,28 @@ import 'package:sneakers/core/routes/app_router.gr.dart';
 
 // dart run build_runner build --delete-conflicting-outputs
 
-@AutoRouterConfig()
+@AutoRouterConfig(replaceInRouteName: 'Screen|Page,Route') // Replace Screen ou Page from RoutePage widget -> Route
 class AppRouter extends RootStackRouter {
 
   @override
+  RouteType get defaultRouteType => RouteType.material(); // Navigation transition type used by all of routes
+
+  @override
   List<AutoRoute> get routes => [
+    AutoRoute(path: '/login', page:  LoginRoute.page, initial: true),
     AutoRoute(
-      path: '/login',
-      page:  LoginRoute.page,
-      keepHistory: false,
-    ),
-    AutoRoute(
-      path: '/home',
-      page: HomeRoute.page,
-      initial: true,
-      // guards: [AuthGuard()]
-    )
+      path: '/app', 
+      page: AppRoute.page,
+      children: [
+        AutoRoute(path: '', page: HomeRoute.page,),
+        AutoRoute(path: 'browse', page: BrowseRoute.page),
+        AutoRoute(path: 'basket', page: BasketRoute.page),
+        AutoRoute(path: 'profile', page: ProfileRoute.page),
+      ]),
+  ];
+
+  @override
+  List<AutoRouteGuard> get guards => [
+    
   ];
 }

@@ -1,5 +1,6 @@
-import 'package:auto_route/annotations.dart';
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import 'package:sneakers/core/routes/app_router.gr.dart';
 
 import 'package:sneakers/core/styles/theme.dart';
 import 'package:sneakers/presentation/widgets/buttons.dart';
@@ -29,8 +30,11 @@ class _LoginPage extends State<LoginPage> {
     // login request
     // is auth -> home page
     // else -> show error
+
     print(_email);
     print(_password);
+    
+    context.router.push(const AppRoute());
   }
 
   @override
@@ -97,6 +101,13 @@ class _LoginPage extends State<LoginPage> {
           ),
         )
       ),
+      // bottomNavigationBar: BottomNavigationBar(
+      //   items: [
+      //     BottomNavigationBarItem(label: 'Users', icon: Icon(Icons.home)),
+      //     BottomNavigationBarItem(label: 'Posts', icon: Icon(Icons.home)),
+      //     BottomNavigationBarItem(label: 'Settings', icon: Icon(Icons.home)),
+      //   ],
+      // ),
     );
   }
 

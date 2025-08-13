@@ -17,7 +17,7 @@ class AuthGuard extends AutoRouteGuard {
         resolver.next(true);
       } else {
         // User is not authenticated, redirect to login
-        router.popAndPush(LoginRoute());
+        router.replace(LoginRoute());
       }
     }
   }
