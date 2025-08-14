@@ -7,9 +7,11 @@ class CustomSearchBar extends StatefulWidget{
   const CustomSearchBar({
     super.key,
     this.onChanged,
+    this.onSubmitted,
   });
 
   final Function(String)? onChanged;
+  final Function(String)? onSubmitted;
 
   @override
   State<CustomSearchBar> createState() => _CustomSearchBarState();
@@ -21,6 +23,7 @@ class _CustomSearchBarState extends State<CustomSearchBar> {
   Widget build(BuildContext context) {
     return SearchBar(
       onChanged: widget.onChanged,
+      onSubmitted: widget.onSubmitted,
 
       hintText: "Search",
       hintStyle: WidgetStatePropertyAll<TextStyle>(agBody3) ,

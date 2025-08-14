@@ -39,12 +39,12 @@ TextStyle body1 = TextStyle(
   fontWeight: FontWeight.w400,
 );
 
-TextStyle boby2Medium = TextStyle(
+TextStyle body2Medium = TextStyle(
   fontSize: 12,
   fontWeight: FontWeight.w500, 
 );
 
-TextStyle boby2Bold = TextStyle(
+TextStyle body2Bold = TextStyle(
   fontSize: 12,
   fontWeight: FontWeight.w700, 
 );
