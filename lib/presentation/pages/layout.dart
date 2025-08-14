@@ -11,6 +11,13 @@ class Layout extends StatelessWidget {
     return MaterialApp.router(
       debugShowCheckedModeBanner: false,
       routerConfig: _appRouter.config(),
+      builder: (BuildContext context, child) {
+        return Scaffold(
+          body: SafeArea(
+            child: child ?? SizedBox.shrink()
+          ),
+        );
+      },
     );
   }
 }
