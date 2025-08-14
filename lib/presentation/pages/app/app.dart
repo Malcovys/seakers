@@ -26,7 +26,12 @@ class AppPage extends StatelessWidget {
         final tabsRouter = AutoTabsRouter.of(context);
 
         return Scaffold(
-          body: child,
+          body: SafeArea(
+            child: Padding(
+              padding: EdgeInsets.fromLTRB(16, 16, 16, 0),
+              child: child,
+            )
+          ),
           bottomNavigationBar: BottomNavigationBar(
             selectedLabelStyle: captionSemibold,
             unselectedLabelStyle: caption,

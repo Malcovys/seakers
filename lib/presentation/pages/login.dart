@@ -100,13 +100,6 @@ class _LoginPage extends State<LoginPage> {
           ),
         )
       ),
-      // bottomNavigationBar: BottomNavigationBar(
-      //   items: [
-      //     BottomNavigationBarItem(label: 'Users', icon: Icon(Icons.home)),
-      //     BottomNavigationBarItem(label: 'Posts', icon: Icon(Icons.home)),
-      //     BottomNavigationBarItem(label: 'Settings', icon: Icon(Icons.home)),
-      //   ],
-      // ),
     );
   }
 
