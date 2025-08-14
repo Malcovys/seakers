@@ -1,7 +1,8 @@
 import 'package:auto_route/annotations.dart';
 import 'package:flutter/material.dart';
 import 'package:sneakers/core/styles/theme.dart';
-import 'package:sneakers/presentation/widgets/searchbar.dart';
+import 'package:sneakers/presentation/widgets/custom_searchbar.dart';
+import 'package:sneakers/presentation/widgets/item_card.dart';
 
 final List<String> sortFilters = [
   "newest",
@@ -48,7 +49,21 @@ class _BrowsePageState extends State<BrowsePage> {
             SortBy()
           ],
         ),
-
+        Expanded(
+          child: GridView.count(
+            crossAxisCount: 2,
+            mainAxisSpacing: 10,
+            crossAxisSpacing: 10,
+            childAspectRatio: 0.6,
+            children: <Widget>[
+              ItemCard(),
+              ItemCard(),
+              ItemCard(),
+              ItemCard(),
+              ItemCard(),
+            ],
+          ),
+        ),
       ],
     );
   }
