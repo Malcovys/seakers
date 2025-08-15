@@ -13,6 +13,18 @@ class CartPage extends StatefulWidget {
 }
 
 class _CartPageState extends State<CartPage> {
+
+  void _onBuy() {
+
+  }
+
+  void _onChangeItemQuantity(int itemId, int newQuantity) {
+
+  }
+
+  void _onRemoveItem(int itemId) {
+
+  }
   
   @override
   Widget build(BuildContext context) {
@@ -26,13 +38,13 @@ class _CartPageState extends State<CartPage> {
             children: <Widget>[
               CartItem(
                 quantity: 2,
-                onChangeQuantity: (newQuantity) {},
-                onRemove: () {},
+                onChangeQuantity: (newQuantity) => _onChangeItemQuantity(1, newQuantity),
+                onRemove: () => _onRemoveItem(1),
               ),
               CartItem(
                 quantity: 2,
-                onChangeQuantity: (newQuantity) {},
-                onRemove: () {},
+                onChangeQuantity: (newQuantity) => _onChangeItemQuantity(2, newQuantity),
+                onRemove: () => _onRemoveItem(2),
               ),
             ],
           )
@@ -62,7 +74,7 @@ class _CartPageState extends State<CartPage> {
                   width: double.infinity, // Makes child expand to full width
                   child: AccentButton(
                     label: "Buy",
-                    onPressed: () {},
+                    onPressed: _onBuy,
                   ),
                 )
               ],
