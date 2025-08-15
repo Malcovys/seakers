@@ -47,7 +47,7 @@ class AppPage extends StatelessWidget {
             items: [
               BottomNavigationBarItem(label: 'Home', icon: Icon(Icons.home_sharp)),
               BottomNavigationBarItem(label: 'Browse', icon: Icon(Icons.search_rounded)),
-              BottomNavigationBarItem(label: 'Basket', icon: Icon(Icons.shopping_basket)),
+              BottomNavigationBarItem(label: 'Cart', icon: Icon(Icons.shopping_basket)),
               BottomNavigationBarItem(label: 'Profile', icon: Icon(Icons.person)),
             ]
           ),
