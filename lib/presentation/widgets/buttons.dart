@@ -25,7 +25,7 @@ class AccentButton extends StatelessWidget {
         )
       ),
       onPressed: onPressed,
-      child: Text(label),
+      child: Text(label, style: body1.copyWith(color: contentOnColorInverse)),
     );
   }
   
