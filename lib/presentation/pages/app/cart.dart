@@ -17,14 +17,17 @@ class _CartPageState extends State<CartPage> {
   Widget build(BuildContext context) {
     return Column(
       children: <Widget>[
-        Text(
-          "Cart",
-          style: h3Bold,
-        ),
-        SizedBox(height: 25,),
+        Text("Cart", style: h3Bold),
+        SizedBox(height: 25),
         CartItem(
           quantity: 2,
           onChangeQuantity: (newQuantity) {},
+          onRemove: () {},
+        ),
+        CartItem(
+          quantity: 2,
+          onChangeQuantity: (newQuantity) {},
+          onRemove: () {},
         ),
       ],
     );
