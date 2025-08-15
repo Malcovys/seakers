@@ -29,6 +29,11 @@ TextStyle h3Medium = TextStyle(
   fontWeight: FontWeight.w500,
 );
 
+TextStyle h3Bold = TextStyle(
+  fontSize: 14,
+  fontWeight: FontWeight.w700,
+);
+
 TextStyle h3Exetrabold = TextStyle(
   fontSize: 14,
   fontWeight: FontWeight.w800,
