@@ -13,7 +13,7 @@ class AppPage extends StatelessWidget {
       routes: [
         HomeRoute(),
         BrowseRoute(),
-        BasketRoute(),
+        CartRoute(),
         ProfileRoute(),
       ],
 
