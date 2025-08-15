@@ -1,10 +1,10 @@
 import 'package:equatable/equatable.dart';
-import 'package:sneakers/domain/entities/basket_item_entity.dart';
+import 'package:sneakers/domain/entities/cart_item_entity.dart';
 
 class PurchaseEntity extends Equatable {
   final int id;
   final DateTime date;
-  final List<BasketItemEntity> items;
+  final List<CartItemEntity> items;
   final double amount;
 
   const PurchaseEntity({
@@ -17,15 +17,15 @@ class PurchaseEntity extends Equatable {
   PurchaseEntity copyWith({
     int? id,
     DateTime? date,
-    List<BasketItemEntity>? items,
+    List<CartItemEntity>? items,
     double? amount,
   }) {
     return PurchaseEntity(
       id: id ?? this.id,
       date: date ?? this.date,
       items: items != null
-          ? List<BasketItemEntity>.unmodifiable(items)
-          : List<BasketItemEntity>.unmodifiable(this.items),
+          ? List<CartItemEntity>.unmodifiable(items)
+          : List<CartItemEntity>.unmodifiable(this.items),
       amount: amount ?? this.amount,
     );
   }

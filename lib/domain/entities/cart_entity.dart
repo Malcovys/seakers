@@ -1,26 +1,26 @@
 
 import 'package:equatable/equatable.dart';
-import 'package:sneakers/domain/entities/basket_item_entity.dart';
+import 'package:sneakers/domain/entities/cart_item_entity.dart';
 
-class BasketEntity extends Equatable {
+class CartEntity extends Equatable {
   final int id;
   final int userId;
-  final List<BasketItemEntity>? items;
+  final List<CartItemEntity>? items;
 
-  const BasketEntity({
+  const CartEntity({
     required this.id,
     required this.userId,
     this.items,
   });
 
-  BasketEntity copyWith({int? id, int? userId, List<BasketItemEntity>? items}) {
-    return BasketEntity(
+  CartEntity copyWith({int? id, int? userId, List<CartItemEntity>? items}) {
+    return CartEntity(
       id: id ?? this.id, 
       userId: userId ?? this.userId,
       items: items ?? (
         this.items == null 
         ? null 
-        : List<BasketItemEntity>.unmodifiable(this.items!)
+        : List<CartItemEntity>.unmodifiable(this.items!)
       )
     );
   }

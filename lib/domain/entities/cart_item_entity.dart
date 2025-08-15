@@ -1,16 +1,16 @@
 
 import 'package:equatable/equatable.dart';
-class BasketItemEntity extends Equatable {
+class CartItemEntity extends Equatable {
   final int itemId;
   final int quantity;
 
-  const BasketItemEntity({
+  const CartItemEntity({
     required this.itemId,
     required this.quantity,
   });
 
-  BasketItemEntity copyWith({int? itemId, int? quantity}) {
-    return BasketItemEntity(
+  CartItemEntity copyWith({int? itemId, int? quantity}) {
+    return CartItemEntity(
       itemId: itemId ?? this.itemId, 
       quantity: quantity ?? this.quantity
     );
