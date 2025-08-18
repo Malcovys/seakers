@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:sneakers/core/routes/app_router.gr.dart';
 
 import 'package:sneakers/core/styles/theme.dart';
-import 'package:sneakers/presentation/widgets/buttons.dart';
+import 'package:sneakers/presentation/widgets/accent_button.dart';
 import 'package:sneakers/presentation/widgets/input_filed.dart';
 
 @RoutePage()

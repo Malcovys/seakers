@@ -28,7 +28,7 @@ class AppPage extends StatelessWidget {
         return Scaffold(
           body: SafeArea(
             child: Padding(
-              padding: EdgeInsets.fromLTRB(16, 16, 16, 0),
+              padding: EdgeInsets.fromLTRB(15, 15, 15, 0),
               child: child,
             )
           ),

@@ -1,16 +1,72 @@
 import 'package:auto_route/annotations.dart';
 import 'package:flutter/material.dart';
+import 'package:sneakers/core/styles/theme.dart';
+import 'package:sneakers/presentation/widgets/profile/purchase.dart';
+import 'package:sneakers/presentation/widgets/profile/user.dart';
 
 @RoutePage()
-class ProfilePage extends StatelessWidget {
+class ProfilePage extends StatefulWidget {
   const ProfilePage({super.key});
+
+  @override
+  State<StatefulWidget> createState() => _ProfilePageState();
+}
+
+class _ProfilePageState extends State<ProfilePage> {
 
   @override
   Widget build(BuildContext context) {
     return Column(
-      mainAxisAlignment: MainAxisAlignment.center,
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
-        const Text("Profile"),
+        /// Header
+        Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            Text("Profile", style: h3Bold),
+          ],
+        ),
+
+        const SizedBox(height: 24),
+
+        /// User infos
+        User(
+          username: "Michael",
+          email: "michael@gemail.com",
+          wallet: 24295.00,
+          onPressedCreditWallet: () {},
+        ),
+
+        const SizedBox(height: 24),
+
+        // Purchases section
+        Text(
+          "Purchases",
+          style: h2Semibold,
+        ),
+        const SizedBox(height: 14),
+        Expanded(
+          child: ListView(
+            children: <Widget>[
+              Purchase(
+                onPressed: () {},
+                amount: 150.00, 
+                date: DateTime.now()
+              ),
+              Purchase(
+                onPressed: () {},
+                amount: 375.50, 
+                date: DateTime.now().subtract(const Duration(days: 1))
+              ),
+              Purchase(
+                onPressed: () {},
+                amount: 210.25, 
+                date: DateTime.now().subtract(const Duration(days: 2))
+              ),
+              // Add more purchases as needed
+            ],
+          ),
+        ),
       ],
     );
   }

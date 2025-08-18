@@ -1,7 +1,7 @@
 import 'package:auto_route/annotations.dart';
 import 'package:flutter/material.dart';
 import 'package:sneakers/core/styles/theme.dart';
-import 'package:sneakers/presentation/widgets/buttons.dart';
+import 'package:sneakers/presentation/widgets/accent_button.dart';
 import 'package:sneakers/presentation/widgets/cart/cart_item.dart';
 
 @RoutePage()

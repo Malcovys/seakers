@@ -1,7 +1,7 @@
 import 'package:auto_route/annotations.dart';
 import 'package:flutter/material.dart';
 import 'package:sneakers/core/styles/theme.dart';
-import 'package:sneakers/presentation/widgets/custom_searchbar.dart';
+import 'package:sneakers/presentation/widgets/browse/custom_searchbar.dart';
 import 'package:sneakers/presentation/widgets/item_card.dart';
 
 final List<String> sortFilters = [
