@@ -3,8 +3,8 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/widgets.dart';
 
 @RoutePage()
-class ItemDetail extends StatelessWidget {
-  const ItemDetail({super.key});
+class ItemDetailPage extends StatelessWidget {
+  const ItemDetailPage({super.key});
 
   @override
   Widget build(BuildContext context) {

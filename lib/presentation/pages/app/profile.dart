@@ -1,4 +1,5 @@
 import 'package:auto_route/annotations.dart';
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:sneakers/core/styles/theme.dart';
 import 'package:sneakers/presentation/widgets/profile/purchase.dart';
@@ -13,6 +14,10 @@ class ProfilePage extends StatefulWidget {
 }
 
 class _ProfilePageState extends State<ProfilePage> {
+
+  void _openPurchase(int id) {
+    // context.router.push(const AppRoute());
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -49,17 +54,17 @@ class _ProfilePageState extends State<ProfilePage> {
           child: ListView(
             children: <Widget>[
               Purchase(
-                onPressed: () {},
+                onPressed: () => _openPurchase(1),
                 amount: 150.00, 
                 date: DateTime.now()
               ),
               Purchase(
-                onPressed: () {},
+                onPressed: () => _openPurchase(2),
                 amount: 375.50, 
                 date: DateTime.now().subtract(const Duration(days: 1))
               ),
               Purchase(
-                onPressed: () {},
+                onPressed: () => _openPurchase(3),
                 amount: 210.25, 
                 date: DateTime.now().subtract(const Duration(days: 2))
               ),
