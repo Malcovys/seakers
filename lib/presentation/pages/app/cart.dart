@@ -37,14 +37,22 @@ class _CartPageState extends State<CartPage> {
             addAutomaticKeepAlives: false,
             children: <Widget>[
               CartItem(
+                label: "Air Jordan 8 Retro Aqua",
+                description: "Men's Shoes",
+                price: 180.20,
                 quantity: 2,
                 onChangeQuantity: (newQuantity) => _onChangeItemQuantity(1, newQuantity),
                 onRemove: () => _onRemoveItem(1),
+                onPressed: () {},
               ),
               CartItem(
+                label: "Air Jordan 8 Retro Aqua",
+                description: "Men's Shoes",
+                price: 180.20,
                 quantity: 2,
                 onChangeQuantity: (newQuantity) => _onChangeItemQuantity(2, newQuantity),
                 onRemove: () => _onRemoveItem(2),
+                onPressed: () {},
               ),
             ],
           )

@@ -1,6 +1,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:sneakers/core/styles/theme.dart';
+import 'package:sneakers/presentation/widgets/item_photo.dart';
 
 class ItemCard extends StatelessWidget{
   const ItemCard({super.key});
@@ -15,22 +16,7 @@ class ItemCard extends StatelessWidget{
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
           Expanded(
-            child: Container(
-              alignment: Alignment.center,
-              padding: EdgeInsets.all(10),
-              decoration: BoxDecoration(
-                color: backgroundSecondary,
-                borderRadius: BorderRadius.circular(24),
-              ),
-              child: Image.network(
-                "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco,u_126ab356-44d8-4a06-89b4-fcdcc8df0245,c_scale,fl_relative,w_1.0,h_1.0,fl_layer_apply/d4afc59f-5aa2-4f8c-9e09-9042d9f67315/AIR+JORDAN+8+RETRO.png",
-                loadingBuilder: (context, child, progress) {
-                  return progress == null
-                    ? child
-                    : CircularProgressIndicator();
-                },
-              ),
-            ),
+            child: ItemPhoto(),
           ),
           SizedBox(height: 5,),
           Padding(

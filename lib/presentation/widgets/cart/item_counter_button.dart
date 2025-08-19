@@ -22,13 +22,13 @@ class ItemCouterButton extends StatelessWidget {
       return Icon(
         Icons.remove,
         color: contentSecondary,
-        size: 10,
+        size: 14,
       );
     } else {
       return Icon(
         Icons.add,
         color: contentOnColorInverse,
-        size: 10,
+        size: 14,
       );
     }
   }
