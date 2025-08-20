@@ -1,39 +1,58 @@
 
 import 'package:flutter/material.dart';
 import 'package:sneakers/core/styles/theme.dart';
+import 'package:sneakers/presentation/utils/serialize_amount.dart';
 import 'package:sneakers/presentation/widgets/item_photo.dart';
 
 class ItemCard extends StatelessWidget{
-  const ItemCard({super.key});
+  const ItemCard({
+    super.key,
+    required this.label,
+    required this.description,
+    required this.price,
+    required this.onPressed,
+  });
+
+  final String label, description;
+  final double price;
+  final void Function() onPressed;
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () {
-        print("taped !!");
-      },
+
+      onTap: onPressed,
+
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
+        spacing: 5,
         children: <Widget>[
+
+          // Item image
           Expanded(
             child: ItemPhoto(),
           ),
-          SizedBox(height: 5,),
+
           Padding(
             padding: EdgeInsets.fromLTRB(15, 0, 15, 0),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
+                // Item price
                 Text(
-                  "Ar349.99",
+                  serializeAmount(price),
                   style: h3Exetrabold,
                 ),
+
+                // Item label
                 Text(
-                  "Air Jordan 8 Retro \"Aqua\"",
+                  label,
                   style: h3Medium,
                 ),
+
+                // Item description
                 Text(
-                  "Men's Shoes",
+                  description,
                   style: caption,
                 )
               ],

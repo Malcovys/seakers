@@ -4,8 +4,11 @@ import 'package:flutter/material.dart';
 @RoutePage()
 class PurchaseItemsPage extends StatelessWidget {
   const PurchaseItemsPage({
-    super.key
+    super.key,
+    required this.purchaseId,
   });
+
+  final int purchaseId;
 
   @override
   Widget build(BuildContext context) {

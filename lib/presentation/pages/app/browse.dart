@@ -1,6 +1,8 @@
-import 'package:auto_route/annotations.dart';
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import 'package:sneakers/core/routes/app_router.gr.dart';
 import 'package:sneakers/core/styles/theme.dart';
+import 'package:sneakers/presentation/pages/app/home.dart';
 import 'package:sneakers/presentation/widgets/browse/custom_searchbar.dart';
 import 'package:sneakers/presentation/widgets/item_card.dart';
 
@@ -20,6 +22,10 @@ class BrowsePage extends StatefulWidget {
 }
 
 class _BrowsePageState extends State<BrowsePage> {
+
+  void _onPressedItem(int id) {
+    context.router.push(ItemDetailRoute(itemId: id));
+  }
 
   void _onTypeToSearchBar(String value) {
     print(value);
@@ -50,18 +56,27 @@ class _BrowsePageState extends State<BrowsePage> {
           ],
         ),
         Expanded(
-          child: GridView.count(
-            crossAxisCount: 2,
-            mainAxisSpacing: 10,
-            crossAxisSpacing: 10,
-            childAspectRatio: 0.6,
-            children: <Widget>[
-              ItemCard(),
-              ItemCard(),
-              ItemCard(),
-              ItemCard(),
-              ItemCard(),
-            ],
+          child: GridView.builder(
+
+            // Contenair style
+            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+              crossAxisCount: 2,
+              mainAxisSpacing: 10,
+              crossAxisSpacing: 10,
+              childAspectRatio: 0.6,
+            ),
+            
+            // Items
+            itemCount: items.length,
+            itemBuilder: (context, index) {
+              return ItemCard(
+                label: items[index]["label"], 
+                description: items[index]["description"], 
+                price: items[index]["price"], 
+                onPressed: () => _onPressedItem(items[index]["id"])
+                // imageUrl: () => items[index]["imageUrl"]
+              );
+            }
           ),
         ),
       ],

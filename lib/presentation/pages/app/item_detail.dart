@@ -4,7 +4,12 @@ import 'package:flutter/widgets.dart';
 
 @RoutePage()
 class ItemDetailPage extends StatelessWidget {
-  const ItemDetailPage({super.key});
+  const ItemDetailPage({
+    super.key,
+    required this.itemId
+  });
+
+  final int itemId;
 
   @override
   Widget build(BuildContext context) {

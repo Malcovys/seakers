@@ -16,12 +16,14 @@ class AppPage extends StatelessWidget {
         CartRoute(),
         ProfileRoute(),
       ],
-
-      transitionBuilder: (context, child, animation) => FadeTransition(
-        opacity: animation,
-        child: child, // Display the selected tab
-      ),
-
+      
+      navigatorObservers: () => [AutoRouteObserver()],
+      homeIndex: 0,
+      lazyLoad: true, // Only build active tab (improves performance)
+      
+      // Support URL path matching for web/deep linking
+      inheritNavigatorObservers: false,
+      
       builder: (context, child) {
         final tabsRouter = AutoTabsRouter.of(context);
 
