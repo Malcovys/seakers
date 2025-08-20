@@ -24,7 +24,7 @@ class BrowsePage extends StatefulWidget {
 class _BrowsePageState extends State<BrowsePage> {
 
   void _onPressedItem(int id) {
-    context.router.push(ItemDetailRoute(itemId: id));
+    context.router.push(ItemRoute(itemId: id));
   }
 
   void _onTypeToSearchBar(String value) {

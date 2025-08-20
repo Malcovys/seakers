@@ -3,8 +3,8 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/widgets.dart';
 
 @RoutePage()
-class ItemDetailPage extends StatelessWidget {
-  const ItemDetailPage({
+class ItemPage extends StatelessWidget {
+  const ItemPage({
     super.key,
     required this.itemId
   });

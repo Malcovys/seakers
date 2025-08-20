@@ -9,7 +9,7 @@ class HomePage extends StatelessWidget {
   const HomePage({super.key});
 
   void _onPressedItem(BuildContext context, int id) {
-    context.router.push(ItemDetailRoute(itemId: id));
+    context.router.push(ItemRoute(itemId: id));
   }
 
   @override

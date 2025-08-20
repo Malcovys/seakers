@@ -6,17 +6,17 @@ import 'package:sneakers/presentation/widgets/profile/purchase.dart';
 import 'package:sneakers/presentation/widgets/profile/user.dart';
 
 @RoutePage()
-class ProfilePage extends StatefulWidget {
-  const ProfilePage({super.key});
+class ProfileHomePage extends StatefulWidget {
+  const ProfileHomePage({super.key});
 
   @override
-  State<StatefulWidget> createState() => _ProfilePageState();
+  State<StatefulWidget> createState() => _ProfileHomePageState();
 }
 
-class _ProfilePageState extends State<ProfilePage> {
+class _ProfileHomePageState extends State<ProfileHomePage> {
 
   void _openPurchase(int id) {
-    context.router.push(PurchaseItemsRoute(purchaseId: id));
+    context.router.push(PurchaseRoute(purchaseId: id));
   }
 
   @override

@@ -2,8 +2,8 @@ import 'package:auto_route/annotations.dart';
 import 'package:flutter/material.dart';
 
 @RoutePage()
-class PurchaseItemsPage extends StatelessWidget {
-  const PurchaseItemsPage({
+class PurchasePage extends StatelessWidget {
+  const PurchasePage({
     super.key,
     required this.purchaseId,
   });

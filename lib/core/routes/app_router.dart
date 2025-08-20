@@ -24,10 +24,11 @@ class AppRouter extends RootStackRouter {
           path: 'profile', 
           page: ProfileRoute.page,
           children: [
-            AutoRoute(path:'purchase/:purchaseId', page: PurchaseItemsRoute.page)
+            AutoRoute(path: '', page: ProfileHomeRoute.page),
+            AutoRoute(path:'purchase/:purchaseId', page: PurchaseRoute.page)
           ]
         ),
-        AutoRoute(path: 'item/:itemId', page: ItemDetailRoute.page),
+        AutoRoute(path: 'item/:itemId', page: ItemRoute.page),
       ]),
   ];
 
