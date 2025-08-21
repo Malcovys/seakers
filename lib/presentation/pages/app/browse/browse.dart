@@ -2,7 +2,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:sneakers/core/routes/app_router.gr.dart';
 import 'package:sneakers/core/styles/theme.dart';
-import 'package:sneakers/presentation/pages/app/home.dart';
+import 'package:sneakers/presentation/pages/app/home/home.dart';
 import 'package:sneakers/presentation/widgets/browse/custom_searchbar.dart';
 import 'package:sneakers/presentation/widgets/item_card.dart';
 

@@ -18,8 +18,14 @@ class AppRouter extends RootStackRouter {
       page: AppRoute.page,
       children: [
         AutoRoute(path: '', page: HomeRoute.page,),
-        AutoRoute(path: 'browse', page: BrowseRoute.page),
         AutoRoute(path: 'cart', page: CartRoute.page),
+        AutoRoute(
+          path: 'browse', 
+          page: BrowseRoute.page,
+          children: [
+            AutoRoute(path: 'item/:itemId', page: ItemRoute.page),
+          ]
+        ),
         AutoRoute(
           path: 'profile', 
           page: ProfileRoute.page,
@@ -28,7 +34,6 @@ class AppRouter extends RootStackRouter {
             AutoRoute(path:'purchase/:purchaseId', page: PurchaseRoute.page)
           ]
         ),
-        AutoRoute(path: 'item/:itemId', page: ItemRoute.page),
       ]),
   ];
 
