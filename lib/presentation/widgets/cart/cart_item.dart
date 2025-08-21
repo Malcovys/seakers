@@ -34,7 +34,10 @@ class _CartItemState extends State<CartItem> {
   @override
   Widget build(BuildContext context) {
     return TextButton(
+      // Press
       onPressed: widget.onPressed,
+      
+      // Style
       style: ButtonStyle(
         shape: WidgetStatePropertyAll(
           RoundedRectangleBorder(
@@ -42,8 +45,10 @@ class _CartItemState extends State<CartItem> {
           ),
         )
       ),
+
+      // Content
       child: Row(
-        spacing: 15,
+        spacing: 16,
         children: <Widget> [
           // Image
           ItemPhoto(
